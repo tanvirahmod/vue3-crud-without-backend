@@ -94,18 +94,18 @@ const deleteTodo = id => {
 // for popUp open and close 
 let popupVar = ref(false);
 let updateVal = ref();
-let index = ref();
+let index;
 
 
 const popup = (id) => {
   popupVar.value = true;
-  index.value = todos.value.findIndex(i => i.id === id);
-  updateVal.value = todos.value[index.value].text;
+  index = todos.value.findIndex(i => i.id === id);
+  updateVal.value = todos.value[index].text;
 }
 
 // update todo
 const UpdateTodo = () => {
-  todos.value[index.value].text = updateVal.value
+  todos.value[index].text = updateVal.value
   popupVar.value = false;
 }
 
